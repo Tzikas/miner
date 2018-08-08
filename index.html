@@ -8,11 +8,85 @@
 </head>
 <body>
   <h1 class="title">Escape the Mines!</h1>
-
+  <p>Miner can find his way through a random maze</p> 
   <section id="mapWrapper">
     <img src="./miner.svg" alt="Miner" id="miner" class="miner">
   </section>
+  <pre>
+  const solve = (map, start, end) => {
 
+    const directions = {
+      up    : (x,y) => map[x]   ? map[x][y-1] : false,
+      down  : (x,y) => map[x]   ? map[x][y+1] : false,
+      left  : (x,y) => map[x-1] ? map[x-1][y] : false,
+      right : (x,y) => map[x+1] ? map[x+1][y] : false
+    }
+
+    class Miner { //miner constructor 
+      constructor(x,y, direction, steps, opp){
+          this.x = x || 0;
+          this.y = y || 0;
+          this.direction = direction || null;       
+          this.steps = steps || [];
+          this.opp = opp || null;
+      }
+
+    }
+
+    const explore = (miner, end) => { //check to see if any open paths 
+      let m; 
+      for(let direction in directions){
+        let d = String(direction); 
+        let open = directions[d](miner.x,miner.y);
+        if(open && miner.opp !== d){ //Create new miner and move him in that direction
+            m =  move( new Miner( miner.x,miner.y,d,[...miner.steps] ), end )
+        } 
+      }
+      return m;
+    }
+
+    const move = (miner, end) => {
+
+      let step = miner.direction
+       switch(step) {
+          case 'right':
+            miner.steps.push(step);
+            miner.x++
+            miner.opp = 'left' 
+            break;
+          case 'down':
+            miner.steps.push(step);
+            miner.y++
+            miner.opp = 'up'         
+            break;
+          case 'left':
+            miner.steps.push(step);
+            miner.x--
+            miner.opp = 'right'         
+            break;
+          case 'up':
+            miner.steps.push(step);
+            miner.y--
+            miner.opp = 'down'         
+            break;
+        }
+        if(end.x === miner.x && end.y === miner.y){
+            console.log(miner.steps);
+            return miner.steps;
+        }
+
+        return explore(miner, end)
+    } 
+
+     return explore(new Miner(start.x,start.y,null,[]), end)  || [] 
+    
+  }
+
+
+
+  
+  From Code Wars: https://www.codewars.com/kata/escape-the-mines
+  </pre>    
   <script src="jquery.js"></script>
 
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>-->

@@ -59,6 +59,22 @@ body {
   margin: 0 auto;
   text-align: center;
   margin-top:  3em;
-  margin-bottom:  2em;
+  margin-bottom:  1em;
+}
+
+pre{
+  background: white;
+    margin: 200px 20px 20px;
+    color: #22618c;
+    padding-top: 20px;
+    overflow: scroll;
+    font-size: 14px;
+}
+
+p{
+  text-align:center;
+  margin: 10px auto; 
+  width:300px;
+  color:white;
 }
 

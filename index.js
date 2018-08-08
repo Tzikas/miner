@@ -1,26 +1,4 @@
-var map = [[true, true, true, false, true],
-    [false, false, true, false, true],
-    [true, true, true, true, true],
-    [true, false, true, false, false],
-    [false, true, true, true, true]];
-
-
-
-map = [
-  [ true,  true,  true,  true, false, false, false],
-  [false, false,  true, false, false, true,   true],
-  [false,  true,  true,  true, false, false,  true],
-  [false,  true,  false, false, false, false,  true],
-  [false,  true, false,  true,  true,  true,  true],
-  [false,  true, false,  true, false, false, false],
-  [false,  true, false,  true,  true,  true,  true],
-  [false,  true,  true, false, false,  true, false],
-  [false, false,  true, false, false,  true,  true],
-  [true,   true,  true, false, false,  true, false],
-  [true,  false, false,  true, false,  true, false],
-  [true,   true,  true,  true,  true,  true, false]
-]
-
+/*
 
 
 function createGround(width, height){
@@ -33,17 +11,18 @@ function createGround(width, height){
         }
     }
     return result;
-}
+}*/
 // Create a new ground with width = 15 & height = 9
 //var ground = createGround(5, 5);
 //map = createGround(5, 5);
 
-//console.log(map)
+////console.log(map)
 //createMap(map, {x:4,y:4})
 
 
 
 const solve = (map, start, end) => {
+  //console.log('solve --- ',start,end)
 
   const directions = {
     up    : (x,y) => map[x]   ? map[x][y-1] : false,
@@ -101,7 +80,7 @@ const solve = (map, start, end) => {
           break;
       }
       if(end.x === miner.x && end.y === miner.y){
-          console.log(miner.steps);
+          //console.log(miner.steps);
           createMap(map, end, miner.steps)
           return miner.steps;
       }
@@ -114,7 +93,7 @@ const solve = (map, start, end) => {
 }
 
 
-console.log(solve(map, {x:0,y:0}, {x:4,y:5})) //Triggers entire event 
+////console.log(solve(map, {x:0,y:0}, {x:4,y:4})) //Triggers entire event 
   //explore(new Miner(0,0,'left',[]))
 
 
@@ -199,11 +178,146 @@ console.log(solve(map, {x:0,y:0}, {x:4,y:5})) //Triggers entire event
         //$('#mapWrapper').css({"background-color": "#52BE80"});
         //$('.tile').css({"opacity": "0"});
         clearInterval(animationInterval);
+        setTimeout(function(){ 
+          window.location.reload()         
+          //solve(map, {x:0,y:0}, {x:5,y:6}) 
+        }
+          ,1000)
+        
       }
     }
-    console.log(map,exit,steps)
+    //console.log(map,exit,steps)
     animationInterval = setInterval(animateMiner, 410);
   }
 //});
 
+var map1 = [
+    [true, true, true, false, true],
+    [false, false, true, false, true],
+    [true, true, true, true, true],
+    [true, false, true, false, false],
+    [false, true, true, true, true]
+];
+
+
+
+var map2 = [
+  [ true,  true,  true,  true, false, false, false],
+  [false, false,  true, false, false, true,   true],
+  [false,  true,  true,  true, false, false,  true],
+  [false,  true,  false, false, false, false,  true],
+  [false,  true, false,  true,  true,  true,  true],
+  [false,  true, false,  true, false, false, false],
+  [false,  true, false,  true,  true,  true,  true],
+  [false,  true,  true, false, false,  true, false],
+  [false, false,  true, false, false,  true,  true],
+  [true,   true,  true, false, false,  true, false],
+  [true,  false, false,  true, false,  true, false],
+  [true,   true,  true,  true,  true,  true, false]
+]
+
+
+
+var map3 = [
+    [true, true, false, false, false, false, false],
+    [false, true, false, false, false, true, false],
+    [false, true, true, true, true, true, false],
+    [false, true, false, true, false, false, false],
+    [false, true, false, false, true, false, false],
+    [false, true, false, false, true, false, false],
+    [false, true, true, true, true, true, true],  
+]
+
+
+
+var map1 = [
+    [true, false, false, false, true, true, true],
+    [true, true, true, false, true, false, true],
+    [false, false, true, false, true, false, true],
+    [false, false, true, false, true, false, true],
+    [false, false, true, false, true, false, true],
+    [false, false, true, true, true, false, true],
+    [false, false, false, false, false, false, true],  
+]
+
+
+
+var map4 = [
+    [true, true, true, true, true, false, false],
+    [true, false, false, false, true, false, false],
+    [true, false, false, false, true, false, true],
+    [false, false, false, true, true, false, true],
+    [false, false, false, false, true, true, true],
+    [false, false, false, false, false, false, true],
+    [false, false, false, false, false, false, true],  
+]
+
+
+var map5 = [
+    [true, true, false, true, true, true, false],
+    [true, false, true, true, false, true, false],
+    [true, true, true, false, false, true, false],
+    [false, true, false, true, true, true, false],
+    [false, true, false, false, false, true, false],
+    [false, true, false, false, false, true, false],
+    [false, true, true, true, false, true, true],  
+]
+
+
+var map6 = [
+    [true, true, false, true, true, true, false],
+    [false, true, false, true, false, true, true],
+    [false, true, false, true, false, true, false],
+    [false, true, true, true, false, true, false],
+    [false, false, true, false, false, true, false],
+    [false, true, true, false, false, true, false],
+    [false, false, false, false, false, true, true],  
+]
+
+
+
+
+var map7 = [
+    [true, false, false, false, true, true, true],
+    [true, false, false, false, true, false, true],
+    [true, true, true, true, true, false, true],
+    [false, true, false, false, false, false, true],
+    [false, true, false, false, true, true, true],
+    [false, true, false, false, true, false, false],
+    [false, true, false, false, true, true, true],  
+]
+
+
+var falses = [
+    [false, false, false, false, false, false, false],
+    [false, false, false, false, false, false, false],
+    [false, false, false, false, false, false, false],
+    [false, false, false, false, false, false, false],
+    [false, false, false, false, false, false, false],
+    [false, false, false, false, false, false, false],
+    [false, false, false, false, false, false, false],  
+]
+/*
+var i = 0
+for(let f=0; f<falses.length; f++){
+  var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+  i  =  Math.min(Math.max(i + plusOrMinus, 0), falses.length)
+  f2  =  Math.min(Math.max(f + plusOrMinus, 0), falses.length)
+  
+
+  falses[f][i] = true; 
+  falses[f2][i] = true; 
+  falses[f-1][i] = true; 
+  
+  
+}*/
+
+
+//console.log(falses)
+var maps = [map1, map2, map3, map4, map5, map6, map7]
+var map = maps[Math.floor(Math.random()*7)]
+    
+    
+//createMap(falses, {x:4,y:4})
+solve(map, {x:0,y:0}, {x:6,y:6})
 
