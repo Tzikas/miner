@@ -124,7 +124,7 @@ const solve = (map, start, end) => {
     var numberOfTiles   = map.length * map[0].length,
         tileWidth       = 40,
         mapWrapperWidth = map.length * tileWidth + 2;
-
+    //$('#mapWrapper:not(img)').html('')
     $('#mapWrapper').css({"width": mapWrapperWidth + 'px'});
 
     var k, m, coords;
@@ -177,10 +177,18 @@ const solve = (map, start, end) => {
         $('body').css({"background-color": "#82E0AA"});
         //$('#mapWrapper').css({"background-color": "#52BE80"});
         //$('.tile').css({"opacity": "0"});
+        //
         clearInterval(animationInterval);
         setTimeout(function(){ 
-          window.location.reload()         
+                    $('.tile').remove()
+            miner.style.left = ''
+            miner.style.top = ''
+
+          //window.location.reload()         
           //solve(map, {x:0,y:0}, {x:5,y:6}) 
+            var map = maps[Math.floor(Math.random()*7)]
+            solve(map, {x:0,y:0}, {x:6,y:6})
+          //
         }
           ,1000)
         
@@ -319,5 +327,5 @@ var map = maps[Math.floor(Math.random()*7)]
     
     
 //createMap(falses, {x:4,y:4})
-solve(map, {x:0,y:0}, {x:6,y:6})
 
+solve(map, {x:0,y:0}, {x:6,y:6})
