@@ -329,3 +329,9 @@ var map = maps[Math.floor(Math.random()*7)]
 //createMap(falses, {x:4,y:4})
 
 solve(map, {x:0,y:0}, {x:6,y:6})
+
+
+
+
+
+$('button').click(()=>{$('pre').toggleClass('hide')})
